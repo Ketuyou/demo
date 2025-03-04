@@ -216,7 +216,7 @@ function initGame() {
         e.preventDefault();
         markMine(i, j);
       });
-      document.getElementById(`cell-${newX}-${newY}`).addEventListener('dblclick', (e) => {
+      cell.addEventListener('dblclick', (e) => {
         handleDoubleClick(i, j, e);
       });
       gridContainer.appendChild(cell);
