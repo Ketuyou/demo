@@ -1,0 +1,118 @@
+.game-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-row-gap: 2px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.cell {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #f0f0f0;
+  background: #c0c0c0;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cell.revealed {
+  background: #e5e5e5;
+  border: 1px solid #808080;
+}
+
+.cell.mine {
+  background: #ff4444;
+  text-align: center;
+}
+
+.cell.mine::after {
+  content: '💣';
+  font-size: 24px;
+}
+
+.cell.flagged {
+  text-align: center;
+  line-height: 40px;
+}
+
+.cell.flagged::after {
+  content: '🚩';
+  font-size: 24px;
+}
+
+.control-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.smiley-button {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #808080;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.smiley-button::after {
+  content: '🙂';
+  position: absolute;
+  font-size: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#win-modal, #lose-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: #45a049;
+}
+
+#fireworks {
+  pointer-events: none;
+}
