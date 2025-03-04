@@ -216,7 +216,9 @@ function initGame() {
         e.preventDefault();
         markMine(i, j);
       });
-      cell.addEventListener('dblclick', () => handleDoubleClick(i, j));
+      document.getElementById(`cell-${newX}-${newY}`).addEventListener('dblclick', (e) => {
+        handleDoubleClick(i, j, e);
+      });
       gridContainer.appendChild(cell);
     }
   }
@@ -236,7 +238,8 @@ function markMine(x, y) {
   document.getElementById('mineCount').textContent = MINES_COUNT - markedMines;
 }
 
-function handleDoubleClick(x, y) {
+function handleDoubleClick(x, y, e) {
+  e.preventDefault();
   if (gameOver || !grid[x][y].revealed || grid[x][y].neighborMines === 0) return;
   
   let flagCount = 0;
