@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <title>经典扫雷</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div id="app">
-        <div class="game-container">
-            <h1>扫雷游戏</h1>
-            <div class="grid">
-                <div v-for="(row, x) in grid" :key="x" class="row">
-                    <div v-for="(cell, y) in row" :key="y" class="cell" :class="{ 
-              revealed: cell.revealed,
-              flagged: cell.flagged,
-              mine: cell.isMine && gameOver
-            }" @click="revealCell(x, y)" @contextmenu.prevent="markMine(x, y)" @dblclick="handleDoubleClick(x, y)">
-                        {{ cell.revealed && !cell.isMine && cell.neighborMines > 0 ? cell.neighborMines : '' }}
-                    </div>
-                </div>
-            </div>
-            <div class="game-status">剩余地雷：{{ minesCount - markedMines }}</div>
+    <div class="game-container">
+        <h1>扫雷游戏</h1>
+        <div class="control-bar">
+            <div class="mine-count">剩余地雷：<span id="mineCount">10</span></div>
+            <button class="smiley-button" onclick="initGame()"></button>
         </div>
-        <div v-if="gameOver" class="modal">
-            <div class="modal-content">
-                <h2>{{ gameWon ? '🎉 胜利！🎉' : '💥 游戏结束！💥' }}</h2>
-                <button @click="initGame">{{ gameWon ? '再玩一次' : '重新开始' }}</button>
-            </div>
-        </div>
+        <div id="minesweeperGrid" class="grid"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
