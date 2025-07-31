@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双人UNO游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>UNO 游戏</h1>
+        <div class="player-info">
+            <div class="player">
+                <h2>玩家</h2>
+                <div class="card-count">卡牌: <span id="player-card-count">0</span></div>
+            </div>
+            <div class="computer">
+                <h2>电脑</h2>
+                <div class="card-count">卡牌: <span id="computer-card-count">0</span></div>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="discard-pile" id="discardPile"></div>
+            <div class="draw-pile" id="drawPile"></div>
+        </div>
+        <div class="player-hand" id="playerHand"></div>
+        <div class="game-controls">
+            <button id="startGame">开始游戏</button>
+            <div class="status-message" id="statusMessage"></div>
+            <div id="colorSelection" class="color-selection">
+                <div class="color-option red" data-color="red"></div>
+                <div class="color-option yellow" data-color="yellow"></div>
+                <div class="color-option green" data-color="green"></div>
+                <div class="color-option blue" data-color="blue"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
