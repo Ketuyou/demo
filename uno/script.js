@@ -156,10 +156,29 @@ class Game {
         this.statusMessageElement = document.getElementById('statusMessage');
         this.colorSelection = document.getElementById('colorSelection');
         this.colorOptions = document.querySelectorAll('.color-option');
+        this.rulesModal = document.getElementById('rulesModal');
+        this.showRulesButton = document.getElementById('showRules');
+        this.closeRulesButton = document.querySelector('.close-btn');
 
         // 事件监听
         this.startButton.addEventListener('click', () => this.startGame());
         this.drawPileElement.addEventListener('click', () => this.drawCard());
+        
+        // 规则模态框事件
+        this.showRulesButton.addEventListener('click', () => {
+            this.rulesModal.style.display = 'flex';
+        });
+        
+        this.closeRulesButton.addEventListener('click', () => {
+            this.rulesModal.style.display = 'none';
+        });
+        
+        // 点击模态框外部关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === this.rulesModal) {
+                this.rulesModal.style.display = 'none';
+            }
+        });
     }
 
     // 开始游戏

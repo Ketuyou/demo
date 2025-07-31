@@ -26,12 +26,43 @@
         <div class="player-hand" id="playerHand"></div>
         <div class="game-controls">
             <button id="startGame">开始游戏</button>
+            <button id="showRules">游戏规则</button>
             <div class="status-message" id="statusMessage"></div>
             <div id="colorSelection" class="color-selection">
                 <div class="color-option red" data-color="red"></div>
                 <div class="color-option yellow" data-color="yellow"></div>
                 <div class="color-option green" data-color="green"></div>
                 <div class="color-option blue" data-color="blue"></div>
+            </div>
+        </div>
+        <!-- 规则说明模态框 -->
+        <div id="rulesModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>UNO游戏规则</h2>
+                <div class="rules-content">
+                    <h3>游戏目标</h3>
+                    <p>先将自己手中的牌全部打出的玩家获胜。</p>
+                    
+                    <h3>卡牌类型</h3>
+                    <ul>
+                        <li><strong>数字牌(0-9)</strong>: 四种颜色(红、黄、绿、蓝)，可匹配相同颜色或数字</li>
+                        <li><strong>跳过牌(Skip)</strong>: 跳过下一位玩家的回合</li>
+                        <li><strong>反转牌(Reverse)</strong>: 改变游戏顺序方向</li>
+                        <li><strong>+2牌(Draw Two)</strong>: 下一位玩家抽2张牌并跳过回合</li>
+                        <li><strong>万能牌(Wild)</strong>: 可任意选择下一个颜色</li>
+                        <li><strong>万能+4牌(Wild Draw Four)</strong>: 任意选择下一个颜色，下一位玩家抽4张牌并跳过回合</li>
+                    </ul>
+                    
+                    <h3>基本玩法</h3>
+                    <ol>
+                        <li>每位玩家初始获得7张牌</li>
+                        <li>从牌堆顶翻一张牌开始游戏</li>
+                        <li>玩家必须打出与当前牌颜色或数字相同的牌，或万能牌</li>
+                        <li>无牌可打时需从牌堆抽一张牌</li>
+                        <li>手牌只剩一张时需喊"UNO"，忘记喊则需罚抽2张牌</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
